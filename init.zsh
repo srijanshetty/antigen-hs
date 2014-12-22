@@ -52,10 +52,12 @@ antigen-hs-compile () {
 }
 
 antigen-update() {
+    CURRENT_DIR=$PWD
     for folder in $(find $HOME/.antigen-hs/repos/ -maxdepth 1 -mindepth 1 -type d); do
         echo "\nIn folder $folder"
         cd $folder && git pull origin master
     done
+    cd $CURRENT_DIR
 }
 
 antigen-list() {
